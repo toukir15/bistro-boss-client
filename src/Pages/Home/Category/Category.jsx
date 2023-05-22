@@ -13,11 +13,18 @@ import category2 from "../../../assets/home/slide2.jpg";
 import category3 from "../../../assets/home/slide3.jpg";
 import category4 from "../../../assets/home/slide4.jpg";
 import category5 from "../../../assets/home/slide5.jpg";
+import HeadingTitle from "../../../components/SectionTitle";
+import SectionTitle from "../../../components/SectionTitle";
 
 export default function Category() {
   return (
     <section className="my-10">
+      <SectionTitle
+        subHeading={"---From 11:00am to 10:00pm---"}
+        heading={"ORDER ONLINE"}
+      ></SectionTitle>
       <Swiper
+        allowSlideNext={true}
         slidesPerView={4}
         spaceBetween={30}
         centeredSlides={true}
@@ -29,31 +36,31 @@ export default function Category() {
       >
         <SwiperSlide>
           <img className="relative " src={category1} alt="" />
-          <h3 className="uppercase text-2xl text-center absolute bottom-5 left-[50%] -translate-x-[50%]">
+          <h3 className="uppercase text-2xl text-center text-white absolute bottom-5 left-[50%] -translate-x-[50%]">
             Salads
           </h3>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="relative " src={category1} alt="" />
-          <h3 className="uppercase text-2xl text-center absolute bottom-5 left-[50%] -translate-x-[50%]">
+          <img className="relative " src={category2} alt="" />
+          <h3 className="uppercase text-2xl text-center text-white absolute bottom-5 left-[50%] -translate-x-[50%]">
             Salads
           </h3>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="relative " src={category1} alt="" />
-          <h3 className="uppercase text-2xl text-center absolute bottom-5 left-[50%] -translate-x-[50%]">
+          <img className="relative " src={category3} alt="" />
+          <h3 className="uppercase text-2xl text-center text-white absolute bottom-5 left-[50%] -translate-x-[50%]">
             Salads
           </h3>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="relative " src={category1} alt="" />
-          <h3 className="uppercase text-2xl text-center absolute bottom-5 left-[50%] -translate-x-[50%]">
+          <img className="relative " src={category4} alt="" />
+          <h3 className="uppercase text-2xl text-center text-white absolute bottom-5 left-[50%] -translate-x-[50%]">
             Salads
           </h3>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="relative " src={category1} alt="" />
-          <h3 className="uppercase text-2xl text-center absolute bottom-5 left-[50%] -translate-x-[50%]">
+          <img className="relative " src={category5} alt="" />
+          <h3 className="uppercase text-2xl text-center text-white absolute bottom-5 left-[50%] -translate-x-[50%]">
             Salads
           </h3>
         </SwiperSlide>
