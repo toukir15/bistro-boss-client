@@ -1,0 +1,5 @@
+.featured-background {
+  background-image: url(../../../assets/home/featured.jpg),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-blend-mode: overlay;
+}
