@@ -1,7 +1,7 @@
 import SectionTitle from "../../../components/SectionTitle";
 import featured from "../../../assets/home/featured.jpg";
 import "./Featured.css";
-
+// sdfds
 export default function Featured() {
   return (
     <section className="my-16 featured-background bg-fixed pb-10 pt-6 text-white">
