@@ -36,25 +36,25 @@ export default function Menu() {
       <div className="my-10">
         <Cover img={dessertImg} title={"DESSERTS"}></Cover>
       </div>
-      <MenuCategory items={dessert} />
+      <MenuCategory title={"desserts"} items={dessert} />
 
       {/* pizza menu  */}
       <div className="my-10">
         <Cover img={pizzaImg} title={"PIZZA"}></Cover>
       </div>
-      <MenuCategory items={pizza} />
+      <MenuCategory title={"pizza"} items={pizza} />
 
       {/* salads menu  */}
       <div className="my-10">
         <Cover img={saladsImg} title={"SALADS"}></Cover>
       </div>
-      <MenuCategory items={salads} />
+      <MenuCategory title={"salads"} items={salads} />
 
       {/* salads menu  */}
       <div className="my-10">
         <Cover img={soupImg} title={"SOUPS"}></Cover>
       </div>
-      <MenuCategory items={soups} />
+      <MenuCategory title={"soups"} items={soups} />
     </div>
   );
 }
