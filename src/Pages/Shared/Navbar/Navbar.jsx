@@ -1,5 +1,15 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import { BsFillCartCheckFill } from "react-icons/bs";
+import useCart from "../../../Hooks/useCart";
+
 export default function Navbar() {
+  const { user, logout } = useContext(AuthContext);
+  const [cart] = useCart();
+  const handleLogout = () => {
+    logout();
+  };
   const navOptions = (
     <>
       <li>
@@ -11,6 +21,37 @@ export default function Navbar() {
       </li>
       <li>
         <Link to="/order/salad">Order Items</Link>
+      </li>
+      <li>
+        <Link to="/dashboard">Order Items</Link>
+      </li>
+      <li>
+        <Link to="/dashboard/mycart">
+          <button className="btn gap-2">
+            <BsFillCartCheckFill className="text-2xl" />
+            <div className="badge">+{cart.length || 0}</div>
+          </button>
+        </Link>
+      </li>
+      <li>
+        <Link to="/secrete">Secrete</Link>
+      </li>
+      <li>
+        {user ? (
+          <>
+            <Link>
+              <button onClick={handleLogout} className="btn btn-active">
+                Logout
+              </button>
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to="login">
+              <button className="btn btn-active">Login</button>
+            </Link>
+          </>
+        )}
       </li>
     </>
   );

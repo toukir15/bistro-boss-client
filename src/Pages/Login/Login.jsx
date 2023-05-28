@@ -5,8 +5,14 @@ import {
   validateCaptcha,
 } from "react-simple-captcha";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state?.from?.pathname;
+  // console.log(location.state.);
+  // const form = location
   const { loginUser } = useContext(AuthContext);
   const captchaRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
@@ -22,6 +28,7 @@ export default function Login() {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
@@ -85,8 +92,9 @@ export default function Login() {
                 validate
               </button>
             </div>
+            {/* todo: btn disable for captcha  */}
             <div className="form-control mt-6">
-              <button disabled={disabled} className="btn btn-primary">
+              <button disabled={false} className="btn btn-primary">
                 Login
               </button>
             </div>

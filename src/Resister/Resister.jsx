@@ -3,20 +3,20 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { useForm } from "react-hook-form";
 
 export default function Resister() {
-  const { createUser } = useContext(AuthContext);
-  const handleResister = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const email = form.name.value;
-    const password = form.name.value;
-    createUser(email, password)
-      .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
-      })
-      .catch((error) => console.log(error.message));
-  };
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  // const handleResister = (event) => {
+  //   event.preventDefault();
+  //   const form = event.target;
+  //   const name = form.name.value;
+  //   const email = form.name.value;
+  //   const password = form.name.value;
+  //   createUser(email, password)
+  //     .then((result) => {
+  //       const loggedUser = result.user;
+  //       console.log(loggedUser);
+  //     })
+  //     .catch((error) => console.log(error.message));
+  // };
 
   const {
     register,
@@ -25,9 +25,11 @@ export default function Resister() {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    console.log(data.name);
     createUser(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;
+        updateUserProfile(data.name);
         console.log(loggedUser);
       })
       .catch((err) => {
