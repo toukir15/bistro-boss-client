@@ -1,9 +1,36 @@
 import { Helmet } from "react-helmet-async";
 import useCart from "../../../Hooks/useCart";
+import Swal from "sweetalert2";
 
 export default function MyCart() {
-  const [cart] = useCart();
+  const [cart, refetch] = useCart();
   const total = cart.reduce((sum, item) => item.price + sum, 0);
+  const handleDelete = (id) => {
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log("vitora duksi");
+        fetch(`http://localhost:5000/carts/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
   return (
     <div>
       <Helmet>
@@ -52,7 +79,12 @@ export default function MyCart() {
 
                 <td>Purple</td>
                 <th>
-                  <button className="btn btn-ghost btn-xs">details</button>
+                  <button
+                    onClick={() => handleDelete(cart._id)}
+                    className="btn btn-warning btn-xs"
+                  >
+                    Delete
+                  </button>
                 </th>
               </tr>
             ))}

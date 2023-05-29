@@ -2,8 +2,10 @@ import { Link, Outlet } from "react-router-dom";
 import { AiFillHome, AiOutlineShoppingCart } from "react-icons/ai";
 import { GiPresent } from "react-icons/gi";
 import { MdOutlinePayment } from "react-icons/md";
+import useCart from "../Hooks/useCart";
 
 export default function Dashboard() {
+  const [cart] = useCart();
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -42,7 +44,7 @@ export default function Dashboard() {
           <li>
             <Link to="">
               <AiOutlineShoppingCart />
-              <a>My Cart</a>
+              <a>My Cart</a> <div className="badge">+{cart.length || 0}</div>
             </Link>
           </li>
           <div className="divider"></div>

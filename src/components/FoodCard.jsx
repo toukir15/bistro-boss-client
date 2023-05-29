@@ -23,7 +23,6 @@ export default function FoodCard({ item }) {
         price,
         email: user.email,
       };
-      console.log("asi to");
       fetch(`http://localhost:5000/carts`, {
         method: "POST",
         headers: {
